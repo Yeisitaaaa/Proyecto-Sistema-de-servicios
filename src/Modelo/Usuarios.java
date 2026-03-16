@@ -9,5 +9,5 @@ package Modelo;
  * @author User
  */
 public class Usuarios {
-    
+    int lol=0;
 }
