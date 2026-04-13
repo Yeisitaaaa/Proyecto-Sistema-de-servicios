@@ -57,6 +57,7 @@ public class register extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -102,7 +103,7 @@ public class register extends javax.swing.JFrame {
         txtPassword.setBounds(50, 330, 190, 30);
 
         getContentPane().add(pan1);
-        pan1.setBounds(90, 60, 300, 470);
+        pan1.setBounds(120, 60, 300, 470);
 
         pan2.setBackground(new java.awt.Color(153, 153, 153));
         pan2.setLayout(null);
@@ -145,7 +146,11 @@ public class register extends javax.swing.JFrame {
         jLabel13.setBounds(140, 440, 310, 25);
 
         getContentPane().add(pan2);
-        pan2.setBounds(410, 60, 270, 470);
+        pan2.setBounds(420, 60, 270, 470);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/wp7122383.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 800, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -202,6 +207,7 @@ public class register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ingresar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
