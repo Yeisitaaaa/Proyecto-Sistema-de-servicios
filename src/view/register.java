@@ -7,13 +7,13 @@ package view;
 import java.awt.*;
 import javax.swing.JOptionPane;
 
-import Modelo.Usuarios;
 /**
  *
  * @author MachineWar
  */
 public class register extends javax.swing.JFrame {
     
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(register.class.getName());
 
     /**
      * Creates new form register
@@ -27,7 +27,6 @@ public class register extends javax.swing.JFrame {
         pan1.setBackground(new Color(60,63,65, 144));
         pan2.setOpaque(true); 
         pan2.setBackground(new Color(204, 204, 204, 144));
-
     }
 
     /**
@@ -50,8 +49,6 @@ public class register extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
         txtBarrio = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         pan2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -60,7 +57,6 @@ public class register extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -86,12 +82,12 @@ public class register extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("BARRIO: ");
         pan1.add(jLabel5);
-        jLabel5.setBounds(30, 260, 90, 25);
+        jLabel5.setBounds(20, 220, 90, 25);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel6.setText("CONTRASEÑA:");
+        jLabel6.setText("CONTRASEÑA");
         pan1.add(jLabel6);
-        jLabel6.setBounds(0, 350, 127, 25);
+        jLabel6.setBounds(80, 300, 127, 25);
 
         txtNombre.addActionListener(this::txtNombreActionPerformed);
         pan1.add(txtNombre);
@@ -101,19 +97,12 @@ public class register extends javax.swing.JFrame {
         pan1.add(txtTelefono);
         txtTelefono.setBounds(120, 160, 170, 30);
         pan1.add(txtBarrio);
-        txtBarrio.setBounds(120, 260, 170, 30);
+        txtBarrio.setBounds(120, 220, 170, 30);
         pan1.add(txtPassword);
-        txtPassword.setBounds(130, 350, 160, 30);
-        pan1.add(txtEmail);
-        txtEmail.setBounds(120, 210, 170, 30);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setText("E-MAIL:");
-        pan1.add(jLabel8);
-        jLabel8.setBounds(30, 210, 67, 25);
+        txtPassword.setBounds(50, 330, 190, 30);
 
         getContentPane().add(pan1);
-        pan1.setBounds(110, 60, 300, 470);
+        pan1.setBounds(90, 60, 300, 470);
 
         pan2.setBackground(new java.awt.Color(153, 153, 153));
         pan2.setLayout(null);
@@ -158,11 +147,6 @@ public class register extends javax.swing.JFrame {
         getContentPane().add(pan2);
         pan2.setBounds(410, 60, 270, 470);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/wp7122383.jpg"))); // NOI18N
-        jLabel1.setText("700,590");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 910, 600);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -171,29 +155,24 @@ public class register extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-       String nombre = txtNombre.getText();
-       String cedula = txtCedula.getText();
-       String email = txtEmail.getText();
-       String telefono = txtTelefono.getText();
-       String barrio = txtBarrio.getText();
-       String pass = txtPassword.getText();
 
-       if (nombre.isEmpty() || cedula.isEmpty() || email.isEmpty() || telefono.isEmpty() || barrio.isEmpty() || pass.isEmpty()) {
-           JOptionPane.showMessageDialog(null, "Debe completar todos los campos.");
-           return;
-       }
+        String nombre = txtNombre.getText();
+        String cedula = txtCedula.getText();
+        String telefono = txtTelefono.getText();
+        String barrio = txtBarrio.getText();
+        String pass = txtPassword.getText();
 
-       Usuarios u = new Usuarios(nombre, cedula, telefono, barrio, pass);
+        if (nombre.isEmpty() || cedula.isEmpty() || telefono.isEmpty() || barrio.isEmpty() || pass.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe completar todos los campos.");
+            return;
+        }
 
-       Usuarios.agregar(u);
+        JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
+        // Aquí luego guardarás el usuario en tu sistema
 
-       Usuarios.mostrarTodos();
-
-       JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
-
-       login lo = new login();
-       lo.setVisible(true);
-       this.setVisible(false);
+        login lo = new login();
+        lo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_IngresarActionPerformed
 
     /**
@@ -213,6 +192,7 @@ public class register extends javax.swing.JFrame {
                 }
             }
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -222,7 +202,6 @@ public class register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ingresar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -233,13 +212,11 @@ public class register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel pan1;
     private javax.swing.JPanel pan2;
     private javax.swing.JTextField txtBarrio;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtTelefono;

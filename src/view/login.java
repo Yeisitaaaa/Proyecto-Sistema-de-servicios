@@ -1,7 +1,7 @@
 package view;
 
 
-import Modelo.Usuarios;
+import Modelo.Operacion;
 
 import javax.swing.JOptionPane;
 import java.awt.Color;
@@ -40,6 +40,12 @@ public class login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pan2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         pan1 = new javax.swing.JPanel();
         tx_email = new javax.swing.JTextField();
         tx_ingresar = new javax.swing.JButton();
@@ -49,18 +55,44 @@ public class login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         peso = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        pan2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        pan1.setBackground(new java.awt.Color(153, 153, 153));
+        pan2.setBackground(new java.awt.Color(102, 102, 102));
+        pan2.setLayout(null);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/2778718.png"))); // NOI18N
+        pan2.add(jLabel1);
+        jLabel1.setBounds(100, 100, 110, 110);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        pan2.add(jLabel8);
+        jLabel8.setBounds(10, 300, 300, 0);
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Your first steps to success.");
+        pan2.add(jLabel12);
+        jLabel12.setBounds(180, 400, 310, 25);
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        pan2.add(jLabel15);
+        jLabel15.setBounds(170, 400, 310, 25);
+
+        jLabel16.setFont(new java.awt.Font("Trebuchet MS", 3, 36)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("BIENVENIDOS");
+        pan2.add(jLabel16);
+        jLabel16.setBounds(40, 0, 240, 90);
+
+        getContentPane().add(pan2);
+        pan2.setBounds(100, 80, 320, 430);
+
+        pan1.setBackground(new java.awt.Color(0, 0, 0));
         pan1.setForeground(new java.awt.Color(102, 0, 0));
         pan1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pan1.setLayout(null);
@@ -85,7 +117,7 @@ public class login extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("CEDULA: ");
+        jLabel7.setText("CEDULA:");
         pan1.add(jLabel7);
         jLabel7.setBounds(10, 160, 90, 16);
 
@@ -93,54 +125,22 @@ public class login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("LOGIN");
         pan1.add(jLabel5);
-        jLabel5.setBounds(90, 30, 110, 90);
+        jLabel5.setBounds(80, 30, 140, 90);
 
         peso.setFont(new java.awt.Font("Dialog", 2, 10)); // NOI18N
         peso.setText("REGISTER");
         peso.addActionListener(this::pesoActionPerformed);
         pan1.add(peso);
-        peso.setBounds(190, 400, 100, 10);
+        peso.setBounds(190, 400, 100, 21);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 3, 10)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Puede registrarse en");
         pan1.add(jLabel14);
-        jLabel14.setBounds(80, 400, 240, 10);
+        jLabel14.setBounds(80, 400, 240, 20);
 
         getContentPane().add(pan1);
-        pan1.setBounds(420, 90, 300, 430);
-
-        pan2.setBackground(new java.awt.Color(102, 102, 102));
-        pan2.setLayout(null);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        pan2.add(jLabel8);
-        jLabel8.setBounds(10, 300, 300, 0);
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Your first steps to success.");
-        pan2.add(jLabel12);
-        jLabel12.setBounds(180, 400, 310, 25);
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        pan2.add(jLabel15);
-        jLabel15.setBounds(170, 400, 310, 25);
-
-        jLabel16.setFont(new java.awt.Font("Trebuchet MS", 3, 36)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("BIENVENIDOS");
-        pan2.add(jLabel16);
-        jLabel16.setBounds(40, 0, 240, 90);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/2778718.png"))); // NOI18N
-        pan2.add(jLabel3);
-        jLabel3.setBounds(90, 100, 110, 90);
-
-        getContentPane().add(pan2);
-        pan2.setBounds(100, 90, 320, 430);
+        pan1.setBounds(420, 80, 300, 430);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/wp7122383.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -154,33 +154,41 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_tx_emailActionPerformed
 
     private void tx_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ingresarActionPerformed
-        String cedula = tx_email.getText();
+        String cedula = tx_email.getText(); // sigue usando el mismo campo, pero ahora es cédula
     String contraseña = tx_contraseña.getText();
 
     if(cedula.isEmpty() || contraseña.isEmpty()){
         JOptionPane.showMessageDialog(null, "Campo vacio");
         tx_email.setText("");
         tx_contraseña.setText("");
-    }else if(!cedula.matches("\\d+")){
-        JOptionPane.showMessageDialog(null, "La cedula solo debe tener numeros");
-        tx_email.setText("");
-    }else if(contraseña.length() < 8){
-        JOptionPane.showMessageDialog(null, "Contraseña muy corta");
-        tx_contraseña.setText("");
-    }else{
-        if(Usuarios.validar(cedula, contraseña)){
-            //debe agregarce la apartado de vista solicisante o las que toquen
-            dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Cedula o contraseña incorrecta");
-        }
+        return;
     }
+
+    // Validar que la cédula sea numérica
+    if(!cedula.matches("[0-9]+")){
+        JOptionPane.showMessageDialog(null, "La cédula debe ser numérica");
+        tx_email.setText("");
+        return;
+    }
+
+    // Validar contraseña
+    String contraseña_verifi = Operacion.Contraseña(contraseña);
+    if(contraseña_verifi.length() < 6){
+        tx_contraseña.setText("");
+        return;
+    }
+
+    // Aquí luego validas usuario real
+    JOptionPane.showMessageDialog(null, "Login correcto");
+
+    // abrir panel
+
     }//GEN-LAST:event_tx_ingresarActionPerformed
 
     private void pesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoActionPerformed
-        register l1= new register();
-        l1.setVisible(true);
-        dispose();
+        register r = new register();
+        r.setVisible(true);
+        dispose(); 
     }//GEN-LAST:event_pesoActionPerformed
 
     /**
@@ -209,12 +217,12 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
