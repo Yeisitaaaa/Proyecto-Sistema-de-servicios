@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Main;
 
-/**
- *
- * @author User
- */
+import Modelo.*;
+import Controlador.*;
+import Modelo.Servicio;
+import Modelo.ServicioFijo;
+import Modelo.ServicioPorHora;
+import view.PanelProovedor;
+
 public class Principal {
-    
+ 
 }

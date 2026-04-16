@@ -49,6 +49,7 @@ public class register extends javax.swing.JFrame {
         txtTelefono = new javax.swing.JTextField();
         txtBarrio = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
+        cbTipoUsuario = new javax.swing.JComboBox<>();
         pan2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -88,7 +89,7 @@ public class register extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("CONTRASEÑA");
         pan1.add(jLabel6);
-        jLabel6.setBounds(80, 300, 127, 25);
+        jLabel6.setBounds(80, 350, 127, 25);
 
         txtNombre.addActionListener(this::txtNombreActionPerformed);
         pan1.add(txtNombre);
@@ -100,7 +101,14 @@ public class register extends javax.swing.JFrame {
         pan1.add(txtBarrio);
         txtBarrio.setBounds(120, 220, 170, 30);
         pan1.add(txtPassword);
-        txtPassword.setBounds(50, 330, 190, 30);
+        txtPassword.setBounds(50, 390, 190, 30);
+
+        cbTipoUsuario.setBackground(new java.awt.Color(242, 242, 242));
+        cbTipoUsuario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Solicitante", "Proveedor" }));
+        cbTipoUsuario.addActionListener(this::cbTipoUsuarioActionPerformed);
+        pan1.add(cbTipoUsuario);
+        cbTipoUsuario.setBounds(60, 290, 170, 30);
 
         getContentPane().add(pan1);
         pan1.setBounds(120, 60, 300, 470);
@@ -161,24 +169,33 @@ public class register extends javax.swing.JFrame {
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
 
-        String nombre = txtNombre.getText();
-        String cedula = txtCedula.getText();
-        String telefono = txtTelefono.getText();
-        String barrio = txtBarrio.getText();
-        String pass = txtPassword.getText();
+         String nombre = txtNombre.getText();
+    String cedula = txtCedula.getText();
+    String telefono = txtTelefono.getText();
+    String barrio = txtBarrio.getText();
+    String pass = txtPassword.getText();
+    String tipo = cbTipoUsuario.getSelectedItem().toString();
 
-        if (nombre.isEmpty() || cedula.isEmpty() || telefono.isEmpty() || barrio.isEmpty() || pass.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Debe completar todos los campos.");
-            return;
-        }
+    if (nombre.isEmpty() || cedula.isEmpty() || telefono.isEmpty() || barrio.isEmpty() || pass.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Debe completar todos los campos.");
+        return;
+    }
 
-        JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
-        // Aquí luego guardarás el usuario en tu sistema
+    if (tipo.equals("Seleccione")) {
+        JOptionPane.showMessageDialog(null, "Debe seleccionar un tipo de usuario");
+        return;
+    }
 
-        login lo = new login();
-        lo.setVisible(true);
-        this.setVisible(false);
+    JOptionPane.showMessageDialog(null, "Usuario registrado como " + tipo);
+
+    login lo = new login(); 
+    lo.setVisible(true);
+    this.setVisible(false);
     }//GEN-LAST:event_IngresarActionPerformed
+
+    private void cbTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbTipoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,6 +224,7 @@ public class register extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ingresar;
+    private javax.swing.JComboBox<String> cbTipoUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
