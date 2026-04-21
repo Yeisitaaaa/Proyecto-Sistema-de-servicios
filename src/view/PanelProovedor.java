@@ -1083,28 +1083,29 @@ public class PanelProovedor extends javax.swing.JFrame {
     }//GEN-LAST:event_SACMouseExited
 
     private void EliminarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarServicioActionPerformed
-    int filaTabla = tablaServicios.getSelectedRow();
+   int filaTabla = tablaServicios.getSelectedRow();
+    
     if (filaTabla != -1) {
-        int respuesta = JOptionPane.showConfirmDialog(null, "Desea eliminar el servicio seleccionado?", "Confirmar", JOptionPane.YES_NO_OPTION);
+        int respuesta = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el servicio seleccionado?", "Confirmar", JOptionPane.YES_NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION) {
             String nombreT = tablaServicios.getValueAt(filaTabla, 1).toString();
-            int posicionEnArreglo = -1;
-            for (int i = 0; i < ArregloServicios.contador; i++) {
-                if (ArregloServicios.lista[i].getNservicio().equals(nombreT) && 
-                    ArregloServicios.lista[i].getCedulaProveedor().equals(CedulaSesion)) {
-                    posicionEnArreglo = i;
+            int posicionEnLista = -1;
+            for (int i = 0; i < ArregloServicios.lista.size(); i++) {
+                if (ArregloServicios.lista.get(i).getNservicio().equals(nombreT) && 
+                    ArregloServicios.lista.get(i).getCedulaProveedor().equals(CedulaSesion)) {
+                    posicionEnLista = i;
                     break; 
                 }
             }
-            if (posicionEnArreglo != -1) {
-                ControladorProveedor.eliminarServicio(posicionEnArreglo);
+
+            if (posicionEnLista != -1) {
+                ControladorProveedor.eliminarServicio(posicionEnLista);
                 ControladorProveedor.listarMisServicios(tablaServicios, CedulaSesion);
-                
                 JOptionPane.showMessageDialog(null, "Servicio eliminado correctamente.");
             }
         }
     } else {
-        JOptionPane.showMessageDialog(null, "Por favor, haga clic en una fila de la tabla primero.");
+        JOptionPane.showMessageDialog(null, "Por favor, seleccione un servicio en la tabla.");
     }
     }//GEN-LAST:event_EliminarServicioActionPerformed
 
