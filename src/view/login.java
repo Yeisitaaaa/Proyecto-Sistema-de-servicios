@@ -50,7 +50,7 @@ public class login extends javax.swing.JFrame {
         tx_email = new javax.swing.JTextField();
         tx_ingresar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        tx_contraseña = new javax.swing.JTextField();
+        tx_Pass = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         peso = new javax.swing.JButton();
@@ -112,8 +112,8 @@ public class login extends javax.swing.JFrame {
         jLabel6.setText("CONTRASEÑA:");
         pan1.add(jLabel6);
         jLabel6.setBounds(10, 220, 140, 16);
-        pan1.add(tx_contraseña);
-        tx_contraseña.setBounds(10, 240, 260, 30);
+        pan1.add(tx_Pass);
+        tx_Pass.setBounds(10, 240, 260, 30);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -154,35 +154,58 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_tx_emailActionPerformed
 
     private void tx_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tx_ingresarActionPerformed
-        String cedula = tx_email.getText(); // sigue usando el mismo campo, pero ahora es cédula
-    String contraseña = tx_contraseña.getText();
+        String cedula = tx_email.getText().trim();
+        String contraseña = tx_Pass.getText().trim();
 
     if(cedula.isEmpty() || contraseña.isEmpty()){
         JOptionPane.showMessageDialog(null, "Campo vacio");
         tx_email.setText("");
-        tx_contraseña.setText("");
+        tx_Pass.setText("");
         return;
     }
 
-    // Validar que la cédula sea numérica
     if(!cedula.matches("[0-9]+")){
         JOptionPane.showMessageDialog(null, "La cédula debe ser numérica");
         tx_email.setText("");
         return;
     }
 
-    // Validar contraseña
-    String contraseña_verifi = Operacion.Contraseña(contraseña);
-    if(contraseña_verifi.length() < 6){
-        tx_contraseña.setText("");
+    if(contraseña.length() < 6){
+        JOptionPane.showMessageDialog(null, "Contraseña muy corta");
+        tx_Pass.setText("");
         return;
     }
 
-    // Aquí luego validas usuario real
-    JOptionPane.showMessageDialog(null, "Login correcto");
+    /**
+     
+    if(cedula.equals("777888") && contraseña.equals("Inge777_")){
+        PanelAdmin pa = new PanelAdmin();
+        pa.setVisible(true);
+        dispose();
+        return;
+    }
+    
+    **/
 
-    // abrir panel
+    
+    Modelo.Usuarios u = Modelo.RegistroPersonas.obtenerUsuario(cedula, contraseña);
 
+    if(u != null){
+
+        
+        if(u.getTipo().equals("Proveedor")){
+            PanelProovedor pp = new PanelProovedor();
+            pp.setVisible(true);
+        }else if(u.getTipo().equals("Solicitante")){
+            PanelUsuario pu = new PanelUsuario();
+            pu.setVisible(true);
+        }
+
+        dispose();
+
+    }else{
+        JOptionPane.showMessageDialog(null, "Cedula o contraseña incorrecta");
+    }
     }//GEN-LAST:event_tx_ingresarActionPerformed
 
     private void pesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoActionPerformed
@@ -230,7 +253,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPanel pan1;
     private javax.swing.JPanel pan2;
     private javax.swing.JButton peso;
-    private javax.swing.JTextField tx_contraseña;
+    private javax.swing.JTextField tx_Pass;
     private javax.swing.JTextField tx_email;
     private javax.swing.JButton tx_ingresar;
     // End of variables declaration//GEN-END:variables

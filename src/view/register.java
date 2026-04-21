@@ -6,7 +6,8 @@ package view;
 
 import java.awt.*;
 import javax.swing.JOptionPane;
-
+import Modelo.Usuarios;
+import Modelo.RegistroPersonas;
 /**
  *
  * @author MachineWar
@@ -168,8 +169,8 @@ public class register extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-
-         String nombre = txtNombre.getText();
+       
+    String nombre = txtNombre.getText();
     String cedula = txtCedula.getText();
     String telefono = txtTelefono.getText();
     String barrio = txtBarrio.getText();
@@ -185,6 +186,17 @@ public class register extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Debe seleccionar un tipo de usuario");
         return;
     }
+
+    Usuarios u = new Usuarios(
+        nombre,
+        cedula,
+        telefono,
+        barrio,
+        pass,
+        tipo
+    );
+
+    Modelo.RegistroPersonas.agregarPersona(u);
 
     JOptionPane.showMessageDialog(null, "Usuario registrado como " + tipo);
 
